@@ -234,9 +234,9 @@ function opening() {
     'opening',
     pad(
       'Khởi tạo số dư đầu kỳ',
-      '<div class="configuration-grid"><div class="system-field">Kỳ khởi tạo · lấy từ thiết lập<div class="system-value">Tháng ' +
+      '<div class="configuration-grid"><div class="system-field">Kỳ khởi tạo<div class="system-value">Tháng ' +
         postingPeriod(day) +
-        '</div></div><div class="system-field">Ngày số dư đầu kỳ · tự xác định<div class="system-value">' +
+        '</div></div><div class="system-field">Ngày số dư đầu kỳ<div class="system-value">' +
         isoDate(day) +
         '</div><small>Không nhập lại ngày ở từng dòng số dư.</small></div><div class="system-field">Cần đổi kỳ khởi tạo?<div>' +
         a(25, 'Xem cấu hình kế toán') +
