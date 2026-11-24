@@ -1,0 +1,674 @@
+.dash-top,
+.dash-chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.dash-top h2 {
+  margin: 0 0 4px;
+  font-size: 22px;
+}
+.dash-filter {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.dash-filter label,
+.dash-chart-header label {
+  font-size: 12px;
+  color: var(--muted);
+  min-width: 135px;
+}
+.dash-chart-header {
+  margin-bottom: 16px;
+}
+.dash-chart {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: end;
+  gap: 9px;
+  min-height: 245px;
+}
+.dash-col {
+  text-align: center;
+  min-width: 0;
+}
+.dash-value {
+  height: 28px;
+  font-size: 10px;
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dash-bar-track {
+  height: 160px;
+  display: flex;
+  align-items: end;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(0deg, transparent 49%, var(--line) 50%, transparent 51%);
+}
+.dash-bar-track span {
+  width: 100%;
+  min-height: 0;
+  display: block;
+  border-radius: 5px 5px 0 0;
+  background: linear-gradient(180deg, #6366f1, #a5b4fc);
+}
+.dash-col small {
+  display: block;
+  margin-top: 8px;
+}
+.dash-metrics .cards {
+  grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+  margin: 18px 0 14px;
+}
+.order-lines {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  overflow: auto;
+}
+.order-add-row {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 9px;
+}
+.order-lines td {
+  vertical-align: top;
+}
+.order-lines input,
+.order-lines select {
+  min-width: 90px;
+}
+.order-lines .line-item {
+  min-width: 210px;
+}
+.order-lines .num {
+  min-width: 95px;
+}
+.order-totals {
+  display: flex;
+  justify-content: flex-end;
+  gap: 25px;
+  margin-top: 12px;
+  padding: 10px 0;
+  font-weight: 700;
+}
+.order-dialog {
+  width: min(920px, calc(100% - 28px));
+}
+.order-dialog .dialogBody {
+  max-height: 70vh;
+  overflow: auto;
+}
+.order-items-summary {
+  color: var(--muted);
+  font-size: 12px;
+  white-space: normal;
+  max-width: 340px;
+}
+.pill-phase {
+  background: #eef2ff;
+  color: #4338ca;
+  border-radius: 30px;
+  padding: 4px 9px;
+  font-size: 12px;
+}
+@media (max-width: 760px) {
+  .dash-chart {
+    gap: 3px;
+  }
+  .dash-value {
+    font-size: 8px;
+  }
+  .dash-metrics .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.stock-view-note {
+  padding: 10px 13px;
+  background: #f7f9fd;
+  color: var(--muted);
+  font-size: 12px;
+  border-top: 1px solid var(--line);
+}
+.stock-detail-heading {
+  display: grid;
+  gap: 3px;
+}
+.stock-detail-heading strong {
+  font-size: 16px;
+}
+.stock-detail-heading small {
+  font-size: 12px;
+}
+#dialog:has(.stock-detail-heading) {
+  width: min(790px, calc(100% - 24px));
+}
+[data-theme='dark'] .stock-view-note {
+  background: #253248;
+}
+
+.catalog-warehouse-note {
+  padding: 0 14px 12px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.catalog-warehouse-note + .tableScroll th:nth-child(3) {
+  min-width: 152px;
+}
+.catalog-warehouse-note + .tableScroll td:nth-child(3) {
+  white-space: normal;
+  min-width: 152px;
+}
+.catalog-warehouse-note + .tableScroll td:nth-child(3) button {
+  white-space: nowrap;
+}
+/* Phase 1: distinguish operational filters, configured rules, and derived values. */
+.configuration-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  align-items: start;
+}
+.system-value {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 9px 11px;
+  background: #f3f6fb;
+  border: 1px solid #e0e7f0;
+  border-radius: 7px;
+  font-weight: 650;
+}
+.system-field {
+  display: grid;
+  gap: 5px;
+  font-weight: 600;
+  font-size: 13px;
+}
+.system-field small {
+  font-weight: 400;
+  line-height: 1.4;
+}
+.close-period-summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr) auto;
+  gap: 18px;
+  align-items: center;
+}
+.close-period-summary .report-month-control {
+  max-width: 245px;
+}
+.close-period-summary .period-state {
+  justify-self: end;
+}
+.ux-helper {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 400;
+  line-height: 1.5;
+}
+[data-theme='dark'] .system-value {
+  background: #26364c;
+  border-color: var(--line);
+}
+@media (max-width: 700px) {
+  .configuration-grid,
+  .close-period-summary {
+    grid-template-columns: 1fr;
+  }
+  .close-period-summary .period-state {
+    justify-self: start;
+  }
+}
+
+/* Dashboard: đặt hai bộ lọc Nhóm hàng và Thời gian nằm ngang cạnh nhau */
+.dash-stock-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 10px 12px;
+}
+.dash-stock-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+  align-items: end;
+}
+.dash-stock-controls > label {
+  width: auto;
+  min-width: 0;
+}
+.dash-stock-time {
+  display: contents;
+}
+.dash-stock-time label {
+  width: auto;
+  min-width: 0;
+}
+.dash-stock-controls select,
+.dash-stock-time input {
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  box-sizing: border-box;
+}
+@media (max-width: 600px) {
+  .dash-stock-head {
+    align-items: flex-start;
+  }
+  .dash-stock-controls {
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: stretch;
+  }
+  .dash-stock-controls > label,
+  .dash-stock-time label {
+    width: auto;
+    min-width: 0;
+    flex: none;
+  }
+}
+
+/* Giá trị tồn kho: tiêu đề bên trái, hai bộ lọc nằm cùng hàng bên phải */
+.dash-stock-head {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.dash-stock-head > div:first-child {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.dash-stock-head h2 {
+  margin: 0 0 4px;
+  white-space: nowrap;
+}
+.dash-stock-head > div:first-child small {
+  display: block;
+  line-height: 1.35;
+}
+.dash-stock-controls {
+  display: flex;
+  flex: 0 0 auto;
+  width: auto;
+  min-width: 0;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+.dash-stock-controls > label,
+.dash-stock-time label {
+  display: grid;
+  gap: 4px;
+  width: 96px;
+  min-width: 0;
+  font-size: 10px;
+  white-space: nowrap;
+}
+.dash-stock-time {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  flex-wrap: nowrap;
+  margin: 0;
+}
+.dash-stock-head select,
+.dash-stock-time select,
+.dash-stock-time input {
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  min-height: 34px;
+  padding: 7px 8px;
+  font-size: 11px;
+  box-sizing: border-box;
+}
+@media (max-width: 420px) {
+  .dash-stock-head {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .dash-stock-controls {
+    width: 100%;
+    flex: 1 1 100%;
+    justify-content: flex-start;
+  }
+  .dash-stock-controls > label,
+  .dash-stock-time label {
+    width: auto;
+    flex: 1 1 0;
+  }
+}
+
+.party-picker {
+  display: flex;
+  align-items: end;
+  gap: 8px;
+  min-width: 0;
+}
+.party-picker > label {
+  flex: 1;
+  min-width: 0;
+}
+.party-picker select {
+  width: 100%;
+  min-width: 0;
+}
+.party-add-button {
+  white-space: nowrap;
+  min-height: 37px;
+  padding: 7px 10px;
+}
+.party-source-note {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 400;
+  align-self: center;
+}
+@media (max-width: 750px) {
+  .party-picker {
+    align-items: stretch;
+  }
+  .party-picker > label {
+    min-width: 0;
+  }
+  .party-add-button {
+    align-self: end;
+  }
+}
+
+/* Chuẩn hóa căn hàng cho bộ lọc, form và modal trên toàn bộ prototype */
+:root {
+  --control-height: 38px;
+}
+.actions,
+.inline,
+.summary-row {
+  align-items: center;
+}
+.formGrid {
+  align-items: start;
+  gap: 14px 16px;
+}
+.formGrid > label,
+.formGrid > .party-picker {
+  min-width: 0;
+  width: 100%;
+}
+.formGrid > label :is(input, select, textarea) {
+  width: 100%;
+  min-width: 0;
+}
+.formGrid > label :is(input, select) {
+  min-height: var(--control-height);
+}
+.formGrid > .party-picker {
+  align-self: end;
+}
+.party-picker {
+  align-items: flex-end;
+  min-width: 0;
+}
+.party-picker > label {
+  min-width: 0;
+  flex: 1;
+}
+.party-picker select {
+  height: var(--control-height);
+  min-height: var(--control-height);
+}
+.party-add-button {
+  height: var(--control-height);
+  min-height: var(--control-height);
+  align-self: flex-end;
+}
+
+/* Các thanh lọc chứng từ: tab, tìm kiếm, ngày và nút có cùng đường chân */
+.document-filters {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.document-filters > .tabs {
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+  flex: 0 0 auto;
+  height: var(--control-height);
+  min-height: var(--control-height);
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+.document-filters > .tabs button {
+  height: 34px;
+  min-height: 34px;
+  padding: 7px 11px;
+  white-space: nowrap;
+}
+.document-filters > input[type='search'] {
+  height: var(--control-height);
+  min-height: var(--control-height);
+  flex: 1 1 205px;
+  min-width: 180px;
+}
+.document-filters > label {
+  display: grid;
+  gap: 4px;
+  align-self: flex-end;
+  flex: 0 1 174px;
+  min-width: 145px;
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.2;
+  color: var(--muted);
+}
+.document-filters > label input {
+  height: var(--control-height);
+  min-height: var(--control-height);
+  width: 100%;
+  font-weight: 400;
+}
+.document-filters > span[aria-hidden='true'] {
+  height: var(--control-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 12px;
+}
+.document-filters > button[type='submit'] {
+  height: var(--control-height);
+  min-height: var(--control-height);
+  align-self: flex-end;
+  white-space: nowrap;
+}
+.document-filters > .link {
+  align-self: center;
+  white-space: nowrap;
+}
+.document-filters.list-tools {
+  align-items: center;
+}
+.list-tools input[type='search'],
+.list-tools select,
+.list-tools > button {
+  height: var(--control-height);
+  min-height: var(--control-height);
+}
+.list-tools input[type='search'] {
+  flex: 1 1 220px;
+  min-width: 190px;
+}
+.list-tools select {
+  flex: 0 1 175px;
+  min-width: 145px;
+}
+.list-tools small {
+  align-self: center;
+}
+
+/* Bộ lọc chung và các thanh công cụ danh sách */
+.filters {
+  align-items: flex-end;
+  gap: 8px;
+}
+.filters > label {
+  display: grid;
+  gap: 4px;
+  min-width: 145px;
+  font-size: 12px;
+  font-weight: 650;
+  color: var(--muted);
+}
+.filters > label :is(input, select) {
+  height: var(--control-height);
+  min-height: var(--control-height);
+  font-weight: 400;
+}
+.filters > button,
+.filters > .actions button {
+  height: var(--control-height);
+  min-height: var(--control-height);
+}
+.warehouse-filter-grid {
+  align-items: end;
+  gap: 12px;
+}
+.warehouse-filter-field input,
+.warehouse-filter-field select,
+.warehouse-filter-buttons button {
+  height: var(--control-height);
+  min-height: var(--control-height);
+}
+
+/* Modal: lưới trường nhập nhất quán, không để cột trống gây lệch */
+dialog .dialogBody {
+  gap: 12px;
+}
+dialog .formGrid {
+  align-items: end;
+}
+dialog .formGrid > label {
+  min-width: 0;
+}
+#dialogBody > .default-account-fields {
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+}
+.default-account-operation {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+.default-account-operation > span {
+  font-weight: 650;
+}
+.default-account-operation > p {
+  margin: 0;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow-wrap: anywhere;
+}
+.default-account-fields .default-account-selected {
+  display: none;
+  overflow-wrap: anywhere;
+  font-weight: 400;
+  color: var(--muted);
+}
+@media (max-width: 480px) {
+  .default-account-fields .default-account-selected:not(:empty) {
+    display: block;
+  }
+}
+dialog .formGrid > label :is(input, select) {
+  height: var(--control-height);
+  min-height: var(--control-height);
+}
+.order-dialog {
+  width: min(920px, calc(100% - 28px));
+}
+.order-dialog .dialogBody > .formGrid {
+  grid-template-columns: minmax(220px, 0.9fr) minmax(320px, 1.1fr);
+  align-items: end;
+  gap: 12px 14px;
+}
+.order-dialog .dialogBody > .formGrid > .party-picker {
+  width: 100%;
+  min-width: 0;
+}
+.order-dialog .party-picker > label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.order-dialog .party-picker select {
+  width: 100%;
+}
+.order-dialog .party-add-button {
+  flex: 0 0 auto;
+}
+.order-dialog .order-lines th,
+.order-dialog .order-lines td {
+  vertical-align: middle;
+}
+.order-dialog .order-lines input,
+.order-dialog .order-lines select,
+.order-dialog .order-lines button {
+  height: 36px;
+  min-height: 36px;
+}
+.order-dialog .order-add-row {
+  margin-top: 10px;
+}
+.order-dialog .order-add-row button {
+  height: 36px;
+  min-height: 36px;
+}
+.order-dialog .order-totals {
+  align-items: center;
+}
+
+/* Các nút hành động trong tiêu đề và thẻ luôn có cùng chiều cao */
+.heading .actions button,
+.warehouse-doc-actions button {
+  min-height: var(--control-height);
+}
+@media (max-width: 900px) {
+  .document-filters > label {
+    flex: 1 1 160px;
+  }
+  .document-filters > input[type='search'] {
+    flex: 1 1 220px;
+  }
+}
+@media (max-width: 700px) {
+  .order-dialog .dialogBody > .formGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .formGrid {
+    gap: 12px;
+  }
+  .document-filters > .tabs {
+    width: 100%;
+    overflow-x: auto;
+  }
+  .document-filters > input[type='search'] {
+    flex: 1 1 100%;
+    min-width: 100%;
+  }
+  .document-filters > label {
+    flex: 1 1 calc(50% - 8px);
+    min-width: 0;
+  }
+}

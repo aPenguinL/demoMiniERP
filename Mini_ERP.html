@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Menu kế toán gọn · Mini ERP Xưởng gỗ</title>
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/appearance.css" />
+    <link rel="stylesheet" href="styles/layout.css" />
+    <link rel="stylesheet" href="styles/documents.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="side" id="sidebar">
+        <div class="brand">
+          <span class="logo">G</span>
+          <div><b>Mini ERP</b><small>Xưởng gỗ</small></div>
+        </div>
+        <nav id="nav" aria-label="Điều hướng module"></nav>
+      </aside>
+      <div>
+        <header class="top bar">
+          <div class="bar">
+            <button id="mobile" aria-label="Mở hoặc đóng menu">☰</button><b>Mini ERP Xưởng gỗ</b>
+          </div>
+          <div class="person header-controls">
+            <button
+              type="button"
+              id="theme-toggle"
+              class="theme-toggle"
+              aria-label="Bật giao diện tối"
+              aria-pressed="false"
+              title="Bật giao diện tối"
+            >
+              <svg
+                class="moon-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                aria-hidden="true"
+              >
+                <path d="M20.9 13.3A9 9 0 0 1 10.7 3.1 9 9 0 1 0 20.9 13.3Z" stroke-linejoin="round" />
+              </svg>
+              <svg
+                class="sun-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.7"
+                aria-hidden="true"
+              >
+                <circle cx="12" cy="12" r="4" />
+                <path
+                  d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </button>
+            <details id="profile-menu" class="profile-menu">
+              <summary
+                id="profile-trigger"
+                aria-label="tanpham, Quản trị viên. Đổi vai trò xem thử"
+                title="Đổi vai trò xem thử"
+              >
+                <span class="avatar" aria-hidden="true">T</span
+                ><span class="profile-identity"
+                  ><span class="profile-name">tanpham</span
+                  ><small id="profile-role" class="profile-role">Quản trị viên</small></span
+                ><svg
+                  class="avatar-chevron"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <path d="m4 6 4 4 4-4" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </summary>
+              <div class="profile-panel">
+                <fieldset>
+                  <legend>Vai trò xem thử</legend>
+                  <label
+                    ><input type="radio" name="demo-role" id="role-tenant" value="tenant" checked />Quản trị
+                    tenant</label
+                  >
+                  <label
+                    ><input type="radio" name="demo-role" id="role-accounting" value="accounting" />Kế
+                    toán</label
+                  >
+                  <label
+                    ><input type="radio" name="demo-role" id="role-warehouse" value="warehouse" />Nhân viên
+                    kho</label
+                  >
+                </fieldset>
+              </div>
+            </details>
+          </div>
+        </header>
+        <main id="app"></main>
+      </div>
+    </div>
+    <dialog id="dialog" aria-labelledby="dialogTitle">
+      <form id="dialogForm">
+        <header>
+          <h2 id="dialogTitle"></h2>
+          <button type="button" data-close aria-label="Đóng">×</button>
+        </header>
+        <div class="dialogBody" id="dialogBody"></div>
+        <footer>
+          <button type="button" data-close>Quay lại</button
+          ><button class="primary" id="dialogButton">Xác nhận</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <!-- Các tệp dùng chung phạm vi JavaScript. Nạp app.js sau các chức năng. -->
+    <script src="scripts/core/ui.js"></script>
+    <script src="scripts/core/state.js"></script>
+    <script src="scripts/core/dialog.js"></script>
+    <script src="scripts/core/navigation.js"></script>
+    <script src="scripts/features/catalog.js"></script>
+    <script src="scripts/features/dashboard.js"></script>
+    <script src="scripts/features/entries.js"></script>
+    <script src="scripts/features/debt.js"></script>
+    <script src="scripts/features/reports.js"></script>
+    <script src="scripts/features/period-close.js"></script>
+    <script src="scripts/features/tax.js"></script>
+    <script src="scripts/features/settings.js"></script>
+    <script src="scripts/features/asset-workflows.js"></script>
+    <script src="scripts/features/journal-posting.js"></script>
+    <script src="scripts/features/order-lines.js"></script>
+    <script src="scripts/features/purchasing.js"></script>
+    <script src="scripts/features/sales.js"></script>
+    <script src="scripts/features/entry-posting.js"></script>
+    <script src="scripts/core/actions.js"></script>
+    <script src="scripts/core/app-events.js"></script>
+    <script src="scripts/features/account-chart.js"></script>
+    <script src="scripts/features/production.js"></script>
+    <script src="scripts/features/payroll.js"></script>
+    <script src="scripts/features/purchase-compliance.js"></script>
+    <script src="scripts/features/sales-deposits.js"></script>
+    <script src="scripts/features/sales-adjustments.js"></script>
+    <script src="scripts/features/stock-movements.js"></script>
+    <script src="scripts/features/warehouse.js"></script>
+    <script src="scripts/core/shell-events.js"></script>
+    <script src="scripts/core/searchable-select.js"></script>
+    <script src="scripts/features/demo-data.js"></script>
+    <script src="scripts/app.js"></script>
+  </body>
+</html>
