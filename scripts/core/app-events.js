@@ -185,9 +185,9 @@ $('app').addEventListener('change', (e) => {
   }
   if (e.target.matches('[data-opening-account]')) {
     const cell = e.target.closest('tr').children[1];
-    const key = partyType(accountCode(e.target.value));
+    const key = openingPartyCatalog(accountCode(e.target.value));
     if (cell.dataset.catalog !== key) {
-      cell.innerHTML = partyControl('', key);
+      cell.innerHTML = openingPartyControl('', key);
       cell.dataset.catalog = key;
     }
   }

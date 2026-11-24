@@ -113,6 +113,10 @@
 #entryForm [data-invoice] {
   min-width: 195px;
 }
+#entryForm[data-kind='opening'] td[data-catalog] select {
+  width: 230px;
+  text-overflow: ellipsis;
+}
 .payment-help {
   margin: 8px 0 0;
 }

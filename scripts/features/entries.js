@@ -359,8 +359,8 @@ function editRow(kind, values = [], fixed = false, payments) {
             '" placeholder="Mã hoặc tên tài khoản"><small class="muted account-balance"></small></td>'
           );
         if (i === 1 && kind === 'opening') {
-          const key = partyType(accountCode(values[0] || ''));
-          return '<td data-catalog="' + key + '">' + partyControl(value, key) + '</td>';
+          const key = openingPartyCatalog(accountCode(values[0] || ''));
+          return '<td data-catalog="' + key + '">' + openingPartyControl(value, key) + '</td>';
         }
         if (i === 1 && kind === 'journal')
           return '<td>' + partyControl(value, partyType(accountCode(values[0] || ''))) + '</td>';
@@ -405,6 +405,46 @@ function partyControl(value, key) {
     catalogSpec[key].rows.map((row) => [row.code, row.code + ' · ' + row.name]),
     catalogMatch(key, value)?.code,
   );
+}
+const openingAccountCatalogs = {
+  152: 'materials',
+  155: 'products',
+  211: 'assets',
+  214: 'assets',
+  242: 'prepaid',
+  341: 'funding',
+  411: 'contributors',
+};
+const openingPartyCatalog = (code) => partyType(code) || openingAccountCatalogs[code.slice(0, 3)] || '';
+
+function openingPartyOptions(key) {
+  if (key === 'materials' || key === 'products') {
+    const group = itemPages[key];
+    const warehouses = warehouseOptions(group);
+    return catalogSpec.items.rows
+      .filter((item) => item.group === group)
+      .flatMap((item) =>
+        warehouses.map(([code, name]) => [
+          item.code + '|' + code,
+          item.code + ' · ' + item.name + ' / ' + name,
+        ]),
+      );
+  }
+  if (key === 'contributors')
+    return catalogSpec.contributors.rows.map(({ code, name }) => [code, code + ' · ' + name]);
+  if (key === 'funding')
+    return profileStore.funding
+      .filter((profile) => profile.category === 'Vay')
+      .map((profile) => [profile.code, profile.code + ' · ' + fundingPartyName(profile)]);
+  return profileStore[key].map(({ code, party }) => [code, code + ' · ' + party]);
+}
+
+function openingPartyControl(value, key) {
+  if (!key) return '<input type="hidden" value="' + esc(value) + '"><span class="muted">—</span>';
+  if (key === 'customers' || key === 'suppliers') return partyControl(value, key);
+  const options = openingPartyOptions(key);
+  if (value && !options.some(([code]) => code === value)) options.unshift([value, value]);
+  return rowOptions('Đối tượng', options, value, key === 'contributors' && !options.length ? 'disabled' : '');
 }
 function paymentOptions(type, party) {
   const kind =
